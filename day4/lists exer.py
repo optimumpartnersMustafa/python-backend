@@ -18,10 +18,31 @@ def merge_dictionaries(dict1, dict2):
 
     merged_dict = dict1 | dict2
     return merged_dict
+def second_largest_max(numbers):
+    if not numbers:
+        return None
+
+    max1 = float('-inf')
+    max2 = float('-inf')
+
+    for num in numbers:
+        if num > max1:
+            max2 = max1
+            max1 = num
+        elif num > max2 and num != max1:
+            max2 = num
+
+    if max2 == float('-inf'):
+        if len(set(numbers)) < 2:
+            return None
+        else:
+            return None
+    else:
+        return max2
 
 print("--- Finding the Second-Largest Number ---")
 my_list1 = [10, 5, 20, 15, 25, 20]
-second_largest1 = find_second_largest(my_list1)
+second_largest1 = second_largest_max(my_list1)
 if second_largest1 is not None:
     print(f"Original list: {my_list1}")
     print(f"The second-largest number is: {second_largest1}")
