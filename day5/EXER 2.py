@@ -33,7 +33,6 @@ student = {
     "age": 20,
     "courses": ["Math", "Physics", "History"]
 }
-
 print(student)
 #-----------------------------------------------------------------------------------------------
 # Given string
@@ -61,22 +60,75 @@ while (n := int(input("Enter a number greater than 10: "))) <= 10:
     print(f"You entered {n}. Please try again.")
 print(f"Thank you! You entered {n}, which is greater than 10.")
 #-----------------------------------------------------------------------------------------------
-# Define the dictionaries
 dict1 = {"a": 1, "b": 2}
 dict2 = {"b": 3, "c": 4}
-# Create a copy of dict1 to start the merge
 merged_dict = dict1.copy()
-# Iterate through dict2 to handle conflicts
 for key, value in dict2.items():
-    # Use a conditional check for the walrus operator
     if key in merged_dict:
-        # Conflict: get the existing value and sum it with the new value
         if (existing_value := merged_dict.get(key)) is not None:
             merged_dict["b_resolved"] = existing_value + value
-            # Remove the old, conflicting key
             del merged_dict[key]
     else:
-        # No conflict, simply add the new key-value pair
         merged_dict[key] = value
-# Print the final merged dictionary
+
 print(merged_dict)
+
+inventory = {
+    "apple": {"price": 1.5, "category": "fruit"},
+    "banana": {"price": 0.75, "category": "fruit"},
+    "milk": {"price": 2.99, "category": "dairy"},
+    "bread": {"price": 3.25, "category": "bakery"},
+    "cheese": {"price": 4.5, "category": "dairy"},
+    "chocolate": {"price": 2.25, "category": "snacks"}
+}
+#-----------------------------------------------------------------------------------------------
+shopping_cart = ["apple", "milk", "banana", "cheese", "apple", "bread", "chocolate", "milk"]
+
+print("Analyzing your shopping cart...\n")
+
+total_price = 0.0
+
+item_quantities = {}
+
+for item_name in shopping_cart:
+    if item_name in inventory:
+        total_price += inventory[item_name]["price"]
+        item_quantities[item_name] = item_quantities.get(item_name, 0) + 1
+    else:
+        print(f"Warning: '{item_name}' not found in inventory and will not be included in the total.")
+
+unique_categories = set()
+for item_name in shopping_cart:
+    if item_name in inventory:
+        unique_categories.add(inventory[item_name]["category"])
+
+most_expensive_item_name = None
+max_price = -1.0 
+
+for item_name in shopping_cart:
+    if item_name in inventory:
+
+        if (current_item_price := inventory[item_name]["price"]) > max_price:
+            max_price = current_item_price
+            most_expensive_item_name = item_name
+
+print("🛒🛍️ Your Detailed Shopping Receipt 🧾")
+print("---------------------------------------")
+
+for item_name, quantity in item_quantities.items():
+    price_per_unit = inventory[item_name]["price"]
+    item_total = price_per_unit * quantity
+    print(f"{item_name.capitalize()} (x{quantity}): ${price_per_unit:.2f} each = ${item_total:.2f}")
+
+print("---------------------------------------")
+
+print(f"💰 Total Price: ${total_price:.2f}")
+
+print(f"🏷️ Unique Categories: {', '.join(sorted(list(unique_categories)))}")
+
+if most_expensive_item_name:
+    print(f"💎 Most Expensive Item: {most_expensive_item_name.capitalize()} (${max_price:.2f})")
+else:
+    print("No items found in the cart to determine the most expensive.")
+print("---------------------------------------")
+print("Thank you for shopping with us! 😊")

@@ -15,7 +15,7 @@ def count_word_frequency(text):
     print(f"Word frequencies: {word_counts}")
     return word_counts
 
-def merge_dictionaries_with_walrus(dict1, dict2):
+def merge_dictionaries(dict1, dict2):
     print(f"\nDictionary 1: {dict1}")
     print(f"Dictionary 2: {dict2}")
     merged_dict = dict1.copy()
@@ -40,8 +40,8 @@ if __name__ == "__main__":
     print("--- Demonstration of Dictionary Merging with Walrus Operator ---")
     dict_a = {"name": "Alice", "age": 30, "city": "New York"}
     dict_b = {"age": 32, "occupation": "Engineer", "city": "San Francisco"}
-    merge_dictionaries_with_walrus(dict_a, dict_b)
+    merge_dictionaries(dict_a, dict_b)
     print("\n--- Another example for merging dictionaries ---")
     dict_x = {"a": 1, "b": 2}
     dict_y = {"b": 3, "c": 4}
-    merge_dictionaries_with_walrus(dict_x, dict_y)
+    merge_dictionaries(dict_x, dict_y)
