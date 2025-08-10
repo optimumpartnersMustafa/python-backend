@@ -72,7 +72,7 @@ for key, value in dict2.items():
         merged_dict[key] = value
 
 print(merged_dict)
-
+#-----------------------------------------------------------------------------------------------
 inventory = {
     "apple": {"price": 1.5, "category": "fruit"},
     "banana": {"price": 0.75, "category": "fruit"},
@@ -81,7 +81,6 @@ inventory = {
     "cheese": {"price": 4.5, "category": "dairy"},
     "chocolate": {"price": 2.25, "category": "snacks"}
 }
-#-----------------------------------------------------------------------------------------------
 shopping_cart = ["apple", "milk", "banana", "cheese", "apple", "bread", "chocolate", "milk"]
 
 print("Analyzing your shopping cart...\n")
