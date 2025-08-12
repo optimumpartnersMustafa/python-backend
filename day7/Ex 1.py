@@ -49,7 +49,7 @@ class BankAccount:
         return self.balance
 
 if __name__ == "__main__":
-    account = BankAccount("John Doe")
+    account = BankAccount("Ahmad")
     account.deposit(100)
     account.withdraw(30)
     account.withdraw(200) 
