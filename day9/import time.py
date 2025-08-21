@@ -42,4 +42,3 @@ with FileManager("simple_sample.txt", "r") as f:
     for i, line in enumerate(f):
         if i >= 5: break
         print(line.strip())
-
